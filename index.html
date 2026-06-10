@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ALYAAURA - Premium luxury fragrance house. Discover exquisite scents crafted to captivate, inspire, and leave a lasting impression.">
+    <meta name="keywords" content="ALYAAURA, luxury perfume, premium fragrance, signature scents, exclusive fragrances">
+    <title>ALYAAURA | Luxury Fragrance House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#home" class="brand">ALYAAURA</a>
+            <nav class="nav-links" aria-label="Primary navigation">
+                <a href="#about">About</a>
+                <a href="#signature">Signature</a>
+                <a href="#collection">Collection</a>
+                <a href="#testimonials">Stories</a>
+            </nav>
+            <div class="header-actions">
+                <button class="button button-outline" id="cartButton" aria-label="Open shopping cart">
+                    <span class="cart-icon">🛍</span> <span id="cartCount">0</span>
+                </button>
+                <a href="#signature" class="button button-primary">Explore</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-overlay"></div>
+            <div class="hero-background">
+                <div class="hero-blur-element"></div>
+            </div>
+            <div class="container hero-content" data-animate="fade-up">
+                <div class="hero-text">
+                    <p class="eyebrow" data-animate="fade-up" data-delay="0">ALYAAURA</p>
+                    <h1 data-animate="fade-up" data-delay="100">More Than a Fragrance. An Aura.</h1>
+                    <p class="hero-subheading" data-animate="fade-up" data-delay="200">Exquisite scents crafted to tell your story long after you've left the room.</p>
+                    <div class="hero-actions" data-animate="fade-up" data-delay="300">
+                        <a href="#signature" class="button button-primary">Shop Collection</a>
+                        <a href="#about" class="button button-secondary">Our Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about" id="about">
+            <div class="container">
+                <div class="about-wrapper">
+                    <div class="about-text" data-animate="fade-right">
+                        <span class="eyebrow">Our Story</span>
+                        <h2>Fragrance as Self-Expression</h2>
+                        <p>At ALYAAURA, we believe fragrance is more than a scent—it's an extension of who you are. Every bottle is crafted to capture emotion, elegance, and individuality, transforming ordinary moments into unforgettable memories.</p>
+                        <p>Inspired by the power of presence and the beauty of self-expression, our collections are designed for those who appreciate sophistication, confidence, and timeless luxury. From radiant daytime signatures to captivating evening statements, each fragrance is created to leave a lasting impression.</p>
+                        <p class="brand-philosophy">ALYAAURA is not simply worn—it is experienced. A signature aura that stays with you long after the moment has passed.</p>
+                    </div>
+                    <div class="about-features" data-animate="fade-left">
+                        <div class="feature-card">
+                            <div class="feature-icon">✨</div>
+                            <h3>Crafted with Intent</h3>
+                            <p>Each fragrance is composed with premium ingredients selected for their purity and potency.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💎</div>
+                            <h3>Timeless Luxury</h3>
+                            <p>Designed to evolve with you, creating a personal signature that endures through every chapter of your life.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">✦</div>
+                            <h3>Unforgettable</h3>
+                            <p>Leave an impression that lingers—a fragrance that becomes part of your identity and story.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signature Collection -->
+        <section class="section signature-collection" id="signature">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <span class="eyebrow">Signature Collection</span>
+                    <h2>Our Iconic Fragrances</h2>
+                    <p>Timeless scents crafted to become your signature.</p>
+                </div>
+                <div class="products-grid" id="signatureProducts">
+                    <!-- Products loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Limited Edition Section -->
+        <section class="section limited-edition" id="collection">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <span class="eyebrow">Limited Edition</span>
+                    <h2>Exclusive Releases</h2>
+                    <p>Rare fragrances for the discerning collector.</p>
+                </div>
+                <div class="products-grid" id="limitedProducts">
+                    <!-- Products loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Fragrance Notes Explorer -->
+        <section class="section notes-explorer">
+            <div class="container">
+                <div class="section-header text-center" data-animate="fade-up">
+                    <span class="eyebrow">Scent Profile</span>
+                    <h2>Fragrance Notes</h2>
+                </div>
+                <div class="notes-grid" data-animate="fade-up">
+                    <div class="note-card">
+                        <div class="note-icon">🌸</div>
+                        <h3>Floral</h3>
+                        <p>Rose, jasmine, peony—delicate and romantic essences that whisper elegance.</p>
+                    </div>
+                    <div class="note-card">
+                        <div class="note-icon">✨</div>
+                        <h3>Amber & Musk</h3>
+                        <p>Warm, sensual, and captivating—the heart of every ALYAAURA creation.</p>
+                    </div>
+                    <div class="note-card">
+                        <div class="note-icon">🌿</div>
+                        <h3>Woody & Spice</h3>
+                        <p>Oud, sandalwood, and exotic spices—mysterious depths that linger.</p>
+                    </div>
+                    <div class="note-card">
+                        <div class="note-icon">🍋</div>
+                        <h3>Citrus & Fresh</h3>
+                        <p>Bergamot and neroli—bright, energizing openings that captivate instantly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Sellers -->
+        <section class="section best-sellers">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <span class="eyebrow">Customer Favorites</span>
+                    <h2>Best Sellers</h2>
+                </div>
+                <div class="bestsellers-carousel" data-animate="fade-up">
+                    <div class="bestseller-card">
+                        <div class="bestseller-badge">⭐ #1</div>
+                        <div class="bestseller-image" style="background-image: url('https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=400&q=80');"></div>
+                        <h3>Golden Hours</h3>
+                        <p>Warm, radiant, and unforgettable—our most coveted signature.</p>
+                        <p class="price">$185</p>
+                    </div>
+                    <div class="bestseller-card">
+                        <div class="bestseller-badge">⭐ #2</div>
+                        <div class="bestseller-image" style="background-image: url('https://images.unsplash.com/photo-1508737763603-fe9b3a36f0a5?auto=format&fit=crop&w=400&q=80');"></div>
+                        <h3>Captivating Halo</h3>
+                        <p>Sophisticated, alluring, and magnetic—your aura in a bottle.</p>
+                        <p class="price">$195</p>
+                    </div>
+                    <div class="bestseller-card">
+                        <div class="bestseller-badge">⭐ #3</div>
+                        <div class="bestseller-image" style="background-image: url('https://images.unsplash.com/photo-1506755855726-75ee1a1a9669?auto=format&fit=crop&w=400&q=80');"></div>
+                        <h3>Love Potion</h3>
+                        <p>Romantic, seductive, and enchanting—timeless elegance in motion.</p>
+                        <p class="price">$190</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-header text-center" data-animate="fade-up">
+                    <span class="eyebrow">Stories</span>
+                    <h2>Customer Testimonials</h2>
+                    <p>Discover how ALYAAURA has transformed moments into memories.</p>
+                </div>
+                <div class="testimonials-grid" data-animate="fade-up">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"ALYAAURA has become my signature. Every time I wear it, I feel more confident and captivating. It's not just a fragrance—it's an extension of my personality."</p>
+                        <p class="testimonial-author">— Sarah M.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"The quality is unmatched. The scent lingers beautifully throughout the day, and I receive compliments constantly. Worth every penny."</p>
+                        <p class="testimonial-author">— Emily L.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"I gifted Captivating Halo to my sister, and she's absolutely obsessed. The bottle is stunning, and the scent is truly unforgettable."</p>
+                        <p class="testimonial-author">— Jessica R.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Luxury Gift Sets -->
+        <section class="section gift-sets">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <span class="eyebrow">Perfect Gifting</span>
+                    <h2>Luxury Gift Collections</h2>
+                </div>
+                <div class="gift-grid" data-animate="fade-up">
+                    <div class="gift-card">
+                        <div class="gift-image" style="background-image: url('https://images.unsplash.com/photo-1560181286-a3fee8c1d6a8?auto=format&fit=crop&w=500&q=80');"></div>
+                        <div class="gift-content">
+                            <h3>The Signature Duo</h3>
+                            <p>A curated pairing of our two most coveted signatures with premium packaging.</p>
+                            <p class="gift-price">$345</p>
+                        </div>
+                    </div>
+                    <div class="gift-card">
+                        <div class="gift-image" style="background-image: url('https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=500&q=80');"></div>
+                        <div class="gift-content">
+                            <h3>The Rare Collection</h3>
+                            <p>Experience our entire limited edition collection in one exquisite gift box.</p>
+                            <p class="gift-price">$695</p>
+                        </div>
+                    </div>
+                    <div class="gift-card">
+                        <div class="gift-image" style="background-image: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80');"></div>
+                        <div class="gift-content">
+                            <h3>The Ultimate Aura</h3>
+                            <p>Our complete fragrance journey—all signatures and limited editions with velvet accessories.</p>
+                            <p class="gift-price">$1,295</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Subscription -->
+        <section class="section newsletter">
+            <div class="container newsletter-wrapper">
+                <div class="newsletter-content" data-animate="fade-up">
+                    <h2>Stay in the Aura</h2>
+                    <p>Be the first to discover new fragrances, exclusive releases, and insider stories from the house of ALYAAURA.</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm" data-animate="fade-up" data-delay="100">
+                    <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                    <button type="submit" class="button button-primary">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Brand Philosophy -->
+        <section class="section philosophy">
+            <div class="container">
+                <div class="philosophy-wrapper" data-animate="fade-up">
+                    <span class="eyebrow">Brand Philosophy</span>
+                    <h2>What Makes ALYAAURA Different</h2>
+                    <div class="philosophy-grid">
+                        <div class="philosophy-card">
+                            <h3>Luxury Craftsmanship</h3>
+                            <p>Every ALYAAURA fragrance is composed by master perfumers using only the finest ingredients from around the world.</p>
+                        </div>
+                        <div class="philosophy-card">
+                            <h3>Timeless Design</h3>
+                            <p>Our bottles are works of art—elegant, minimalist, and designed to be displayed and cherished.</p>
+                        </div>
+                        <div class="philosophy-card">
+                            <h3>Personal Connection</h3>
+                            <p>We believe fragrance should resonate with your personality and become part of your identity.</p>
+                        </div>
+                        <div class="philosophy-card">
+                            <h3>Lasting Impression</h3>
+                            <p>Our fragrances are formulated for longevity, designed to stay with you throughout your day and beyond.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-section">
+                <h4>ALYAAURA</h4>
+                <p>Luxury fragrance house crafting exquisite scents for the discerning.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                    <a href="#" aria-label="Pinterest">Pinterest</a>
+                    <a href="#" aria-label="Facebook">Facebook</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Shop</h4>
+                <a href="#signature">Signature</a>
+                <a href="#collection">Limited Edition</a>
+                <a href="#gift-sets">Gift Sets</a>
+            </div>
+            <div class="footer-section">
+                <h4>About</h4>
+                <a href="#about">Our Story</a>
+                <a href="#philosophy">Brand Philosophy</a>
+                <a href="#">Sustainability</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>hello@alyaaura.com</p>
+                <p>+1 (888) ALYAAURA</p>
+                <p>Luxury Customer Service 24/7</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ALYAAURA. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2>Your Cart</h2>
+            <div id="cartItems"></div>
+            <div class="cart-summary">
+                <p>Total: <span id="cartTotal">$0</span></p>
+                <button class="button button-primary full-width">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
