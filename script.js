@@ -5,7 +5,7 @@ const signatureProducts = [
         name: 'Golden Hours',
         description: 'Warm, radiant, and unforgettable',
         price: 185,
-        image: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=400&q=80',
+        image: 'golden-hours.jpg',
         label: 'Best Seller',
         rating: 4.9
     },
@@ -14,7 +14,7 @@ const signatureProducts = [
         name: 'Love Potion',
         description: 'Romantic, seductive, and enchanting',
         price: 190,
-        image: 'https://images.unsplash.com/photo-1506755855726-75ee1a1a9669?auto=format&fit=crop&w=400&q=80',
+        image: 'love-potion.jpg',
         label: 'Signature',
         rating: 4.8
     },
@@ -23,7 +23,7 @@ const signatureProducts = [
         name: 'Captivating Halo',
         description: 'Sophisticated, alluring, and magnetic',
         price: 195,
-        image: 'https://images.unsplash.com/photo-1508737763603-fe9b3a36f0a5?auto=format&fit=crop&w=400&q=80',
+        image: 'captivating-halo.jpg',
         label: 'Most Loved',
         rating: 4.9
     }
@@ -69,6 +69,22 @@ const limitedProducts = [
 ];
 
 let cart = [];
+let compareItems = [];
+let testimonialIndex = 0;
+const testimonials = [
+    {
+        quote: '"ALYAAURA has become my signature. Every time I wear it, I feel more confident and captivating. It’s not just a fragrance—it’s an extension of my personality."',
+        author: '— Sarah M.'
+    },
+    {
+        quote: '"The quality is unmatched. The scent lingers beautifully throughout the day, and I receive compliments constantly. Worth every penny."',
+        author: '— Emily L.'
+    },
+    {
+        quote: '"I gifted Captivating Halo to my sister, and she’s absolutely obsessed. The bottle is stunning, and the scent is truly unforgettable."',
+        author: '— Jessica R.'
+    }
+];
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -107,6 +123,7 @@ function createProductCard(product) {
             <button class="button button-primary" onclick="addToCart(${product.id}, '${product.name}', ${product.price})">
                 Add to Cart
             </button>
+            <button class="button button-secondary compare-button" type="button" onclick="addToCompare(${product.id}, '${product.name}')">Compare</button>
         </div>
     `;
 }
@@ -179,18 +196,74 @@ function setupEventListeners() {
         });
     }
     
-    const closeButton = document.querySelector('.modal-close');
-    if (closeButton) {
-        closeButton.addEventListener('click', closeCart);
+    document.querySelectorAll('.modal-close').forEach(button => {
+        const modal = button.closest('.modal');
+        button.addEventListener('click', () => closeModal(modal));
+    });
+
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal(modal);
+            }
+        });
+    });
+
+    const openCompareButton = document.getElementById('openCompareButton');
+    if (openCompareButton) {
+        openCompareButton.addEventListener('click', () => openModal(document.getElementById('compareModal')));
     }
+
+    window.addEventListener('scroll', updateScrollProgress);
+    updateScrollProgress();
+    initTestimonials();
     
     const newsletterForm = document.getElementById('newsletterForm');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', handleNewsletterSubmit);
     }
     
+    initCarouselControls();
+    
     // Add animations on scroll
     observeElements();
+}
+
+// Initialize carousel controls and autoplay
+function initCarouselControls() {
+    document.querySelectorAll('.carousel-control').forEach(button => {
+        button.addEventListener('click', () => {
+            const target = button.dataset.target;
+            const direction = button.classList.contains('next') ? 1 : -1;
+            slideCarousel(target, direction);
+        });
+    });
+
+    setInterval(() => slideCarousel('signatureProducts', 1), 7000);
+    setInterval(() => slideCarousel('limitedProducts', 1), 8000);
+}
+
+// Slide a carousel container by one product card width
+function slideCarousel(targetId, direction) {
+    const carousel = document.getElementById(targetId);
+    if (!carousel) return;
+
+    const card = carousel.querySelector('.product-card');
+    if (!card) return;
+
+    const computedStyle = getComputedStyle(carousel);
+    const gap = parseFloat(computedStyle.getPropertyValue('gap')) || 24;
+    const scrollAmount = card.offsetWidth + gap;
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    let nextScroll = carousel.scrollLeft + scrollAmount * direction;
+
+    if (nextScroll > maxScroll) {
+        nextScroll = 0;
+    } else if (nextScroll < 0) {
+        nextScroll = maxScroll;
+    }
+
+    carousel.scrollTo({ left: nextScroll, behavior: 'smooth' });
 }
 
 // Open cart modal
@@ -247,6 +320,72 @@ function removeFromCart(index) {
     saveCartToStorage();
     renderCartItems();
     showNotification('Item removed from cart');
+}
+
+function openModal(modal) {
+    if (!modal) return;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+}
+
+function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+}
+
+function addToCompare(id, name) {
+    if (compareItems.some(item => item.id === id)) {
+        showNotification(`${name} is already in comparison.`);
+        return;
+    }
+    compareItems.push({ id, name });
+    updateCompareBar();
+    showNotification(`${name} added to compare.`);
+}
+
+function removeFromCompare(index) {
+    compareItems.splice(index, 1);
+    updateCompareBar();
+}
+
+function updateCompareBar() {
+    const compareBar = document.getElementById('compareBar');
+    const compareList = document.getElementById('compareList');
+    if (!compareBar || !compareList) return;
+    compareList.innerHTML = compareItems.map((item, index) => `<span>${item.name} <button type="button" onclick="removeFromCompare(${index})">✕</button></span>`).join('');
+    compareBar.style.display = compareItems.length ? 'flex' : 'none';
+}
+
+function initTestimonials() {
+    const prevButton = document.getElementById('testimonialPrev');
+    const nextButton = document.getElementById('testimonialNext');
+    if (prevButton) prevButton.addEventListener('click', () => setTestimonial(testimonialIndex - 1));
+    if (nextButton) nextButton.addEventListener('click', () => setTestimonial(testimonialIndex + 1));
+    setTestimonial(testimonialIndex);
+}
+
+function setTestimonial(index) {
+    testimonialIndex = (index + testimonials.length) % testimonials.length;
+    const display = document.getElementById('testimonialDisplay');
+    const dots = document.getElementById('testimonialDots');
+    if (!display || !dots) return;
+    display.innerHTML = `
+        <div class="testimonial-card active">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">${testimonials[testimonialIndex].quote}</p>
+            <p class="testimonial-author">${testimonials[testimonialIndex].author}</p>
+        </div>
+    `;
+    dots.innerHTML = testimonials.map((_, idx) => `<button class="dot ${idx === testimonialIndex ? 'active' : ''}" type="button" onclick="setTestimonial(${idx})"></button>`).join('');
+}
+
+function updateScrollProgress() {
+    const fill = document.querySelector('.scroll-progress-fill');
+    if (!fill) return;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = max > 0 ? (window.scrollY / max) * 100 : 0;
+    fill.style.width = `${percent}%`;
 }
 
 // Handle newsletter submit

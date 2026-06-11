@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-fill"></div></div>
+
     <!-- Navigation Header -->
     <header class="site-header">
         <div class="container header-inner">
@@ -60,6 +62,8 @@
                         <h2>Fragrance as Self-Expression</h2>
                         <p>At ALYAAURA, we believe fragrance is more than a scent—it's an extension of who you are. Every bottle is crafted to capture emotion, elegance, and individuality, transforming ordinary moments into unforgettable memories.</p>
                         <p>Inspired by the power of presence and the beauty of self-expression, our collections are designed for those who appreciate sophistication, confidence, and timeless luxury. From radiant daytime signatures to captivating evening statements, each fragrance is created to leave a lasting impression.</p>
+                    </div>
+                    <div class="about-sidebar" data-animate="fade-left">
                         <p class="brand-philosophy">ALYAAURA is not simply worn—it is experienced. A signature aura that stays with you long after the moment has passed.</p>
                     </div>
                 </div>
@@ -74,8 +78,12 @@
                     <h2>Our Iconic Fragrances</h2>
                     <p>Timeless scents crafted to become your signature.</p>
                 </div>
-                <div class="products-grid" id="signatureProducts">
-                    <!-- Products loaded by JavaScript -->
+                <div class="carousel-wrapper" data-animate="fade-up">
+                    <button class="carousel-control prev" data-target="signatureProducts" aria-label="Previous signature fragrance">‹</button>
+                    <div class="products-carousel signature-carousel" id="signatureProducts">
+                        <!-- Products loaded by JavaScript -->
+                    </div>
+                    <button class="carousel-control next" data-target="signatureProducts" aria-label="Next signature fragrance">›</button>
                 </div>
             </div>
         </section>
@@ -88,8 +96,12 @@
                     <h2>Exclusive Releases</h2>
                     <p>Rare fragrances for the discerning collector.</p>
                 </div>
-                <div class="products-grid" id="limitedProducts">
-                    <!-- Products loaded by JavaScript -->
+                <div class="carousel-wrapper" data-animate="fade-up">
+                    <button class="carousel-control prev" data-target="limitedProducts" aria-label="Previous limited fragrance">‹</button>
+                    <div class="products-carousel" id="limitedProducts">
+                        <!-- Products loaded by JavaScript -->
+                    </div>
+                    <button class="carousel-control next" data-target="limitedProducts" aria-label="Next limited fragrance">›</button>
                 </div>
             </div>
         </section>
@@ -126,69 +138,8 @@
             </div>
         </section>
 
-        <!-- Best Sellers -->
-        <section class="section best-sellers">
-            <div class="container">
-                <div class="section-header" data-animate="fade-up">
-                    <span class="eyebrow">Customer Favorites</span>
-                    <h2>Best Sellers</h2>
-                </div>
-                <div class="bestsellers-carousel" data-animate="fade-up">
-                    <div class="bestseller-card">
-                        <div class="bestseller-badge">⭐ #1</div>
-                        <div class="bestseller-image" style="background-image: url('https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=400&q=80');"></div>
-                        <h3>Golden Hours</h3>
-                        <p>Warm, radiant, and unforgettable—our most coveted signature.</p>
-                        <p class="price">$185</p>
-                    </div>
-                    <div class="bestseller-card">
-                        <div class="bestseller-badge">⭐ #2</div>
-                        <div class="bestseller-image" style="background-image: url('https://images.unsplash.com/photo-1508737763603-fe9b3a36f0a5?auto=format&fit=crop&w=400&q=80');"></div>
-                        <h3>Captivating Halo</h3>
-                        <p>Sophisticated, alluring, and magnetic—your aura in a bottle.</p>
-                        <p class="price">$195</p>
-                    </div>
-                    <div class="bestseller-card">
-                        <div class="bestseller-badge">⭐ #3</div>
-                        <div class="bestseller-image" style="background-image: url('https://images.unsplash.com/photo-1506755855726-75ee1a1a9669?auto=format&fit=crop&w=400&q=80');"></div>
-                        <h3>Love Potion</h3>
-                        <p>Romantic, seductive, and enchanting—timeless elegance in motion.</p>
-                        <p class="price">$190</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="section testimonials" id="testimonials">
-            <div class="container">
-                <div class="section-header text-center" data-animate="fade-up">
-                    <span class="eyebrow">Stories</span>
-                    <h2>Customer Testimonials</h2>
-                    <p>Discover how ALYAAURA has transformed moments into memories.</p>
-                </div>
-                <div class="testimonials-grid" data-animate="fade-up">
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"ALYAAURA has become my signature. Every time I wear it, I feel more confident and captivating. It's not just a fragrance—it's an extension of my personality."</p>
-                        <p class="testimonial-author">— Sarah M.</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"The quality is unmatched. The scent lingers beautifully throughout the day, and I receive compliments constantly. Worth every penny."</p>
-                        <p class="testimonial-author">— Emily L.</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"I gifted Captivating Halo to my sister, and she's absolutely obsessed. The bottle is stunning, and the scent is truly unforgettable."</p>
-                        <p class="testimonial-author">— Jessica R.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Luxury Gift Sets -->
-        <section class="section gift-sets">
+        <section class="section gift-sets" id="gift-sets">
             <div class="container">
                 <div class="section-header" data-animate="fade-up">
                     <span class="eyebrow">Perfect Gifting</span>
@@ -238,7 +189,7 @@
         </section>
 
         <!-- Brand Philosophy -->
-        <section class="section philosophy">
+        <section class="section philosophy" id="philosophy">
             <div class="container">
                 <div class="philosophy-wrapper" data-animate="fade-up">
                     <span class="eyebrow">Brand Philosophy</span>
@@ -261,6 +212,25 @@
                             <p>Our fragrances are formulated for longevity, designed to stay with you throughout your day and beyond.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-header text-center" data-animate="fade-up">
+                    <span class="eyebrow">Stories</span>
+                    <h2>Customer Testimonials</h2>
+                    <p>Discover how ALYAAURA has transformed moments into memories.</p>
+                </div>
+                <div class="testimonial-slider" data-animate="fade-up">
+                    <div class="testimonial-display" id="testimonialDisplay"></div>
+                    <div class="testimonial-controls">
+                        <button class="button button-outline" id="testimonialPrev">Previous</button>
+                        <button class="button button-outline" id="testimonialNext">Next</button>
+                    </div>
+                    <div class="testimonial-dots" id="testimonialDots"></div>
                 </div>
             </div>
         </section>
@@ -298,14 +268,14 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 ALYAAURA. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            <p>&copy; 2026 ALYAAURA. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
         </div>
     </footer>
 
     <!-- Cart Modal -->
     <div class="modal" id="cartModal">
         <div class="modal-content">
-            <button class="modal-close">&times;</button>
+            <button class="modal-close" aria-label="Close cart modal">&times;</button>
             <h2>Your Cart</h2>
             <div id="cartItems"></div>
             <div class="cart-summary">
@@ -313,6 +283,21 @@
                 <button class="button button-primary full-width">Proceed to Checkout</button>
             </div>
         </div>
+    </div>
+
+    <!-- Compare Modal -->
+    <div class="modal custom-modal" id="compareModal" aria-hidden="true">
+        <div class="modal-content compare-content">
+            <button class="modal-close" aria-label="Close comparison modal">&times;</button>
+            <h2>Compare Fragrances</h2>
+            <div class="compare-columns" id="compareColumns"></div>
+        </div>
+    </div>
+
+    <!-- Compare Bar -->
+    <div class="compare-bar" id="compareBar" aria-hidden="true">
+        <div class="compare-list" id="compareList"></div>
+        <button class="button button-secondary" id="openCompareButton">View Comparison</button>
     </div>
 
     <script src="script.js"></script>
